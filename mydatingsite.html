@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        fieldset {
+            background: lightyellow;
+            border: 10px solid yellow;
+            width: 720px;
+            margin-bottom: 10px
+        }
+
+        label {
+            width: 180px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: right
+        }
+
+        textarea {
+            width: 360px;
+            height: 50px
+        }
+
+        .sp {
+            width: auto;
+            width: 180px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: right
+        }
+
+        label:hover {
+            font-size: 40px
+        }
+
+        input:hover {
+            font-size: 40px
+        }
+    </style>
+    <h1>Please Enter Your Details For Our Dating Website!</h1>
+</head>
+
+<body>
+    <form action="mailto:surendarsingh2002@gmail.com" method="POST" enctype="text/plain">
+        <fieldset>
+            <legend>Your Face</legend>
+            <label for="image">Your image:</label>
+            <input type="file" id="image" name="image" required><br>
+            <label for="preview">Image preview:</label>
+            <img id="preview">
+        </fieldset>
+        <fieldset>
+            <legend>Your General Details</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name"><br>
+            <label class="sp" for="gender">Gender:</label>
+            <input type="radio" id="gender" name="gender" value="male" required>Male
+            <input type="radio" id="gender" name="gender" value="female" required>Female<br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br>
+            <label for="dob">Date of birth:</label>
+            <input type="date" id="dob" name="dateofbirth"><br>
+            <label for="color">Favorite color:</label>
+            <input type="color" id="color" name="color"><br>
+            <label for="country">Which country:</label>
+            <select id="country" name="country">
+                <option value="noselection">No selection</option>
+                <option value="india">India</option>
+                <option value="canada">Canada</option>
+                <option value="china">China</option>
+                <option value="italy">Italy</option>
+                <option value="pakisthan">Pakisthan</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Your indicators</legend>
+            <label for="height">Height:</label>
+            <span text-align:center style="background:red">Short</span><input type="range" min="0" max="100" step="5"
+                value="50" id="height" name="height"><span text-align:center style="background:purple">Tall</span><br>
+            <label for="salary">Salary:</label>
+            <span text-align:center style="background:red">Poor</span><input type="range" min="0" max="100" step="5"
+                value="50" id="height" name="height"><span text-align:center style="background:purple">Rich</span><br>
+        </fieldset>
+        <fieldset>
+            <legend>Your Contact Information</legend>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="tel">Mobile:</label>
+            <input type="tel" id="tel" name="mobile"><br>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address">
+ </textarea><br>
+            <label class="sp" for="contact">Method to contact you:</label>
+            <input type="checkbox" id="contact" name="contact" value="email">Email
+            <input type="checkbox" id="contact" name="contact" value="whatsapp">Whatsapp
+            <input type="checkbox" id="contact" name="contact" value="inappchat">In-app chat
+        </fieldset>
+        <input type="submit" value="Submit!">
+    </form>
+    <script>
+        window.onload = function () {
+            var files = document.querySelectorAll("input[type=file]");
+            files[0].addEventListener("change", function (e) {
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById("preview").setAttribute("src", e.target.result);
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

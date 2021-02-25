@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<body onload="gamestart()">
+  <script>
+    var target;
+    var ranno;
+    var ran;
+    var guess = 0;
+    var finished = false;
+
+    function gamestart() {
+      ranno = Math.random() * 100;
+      ran = Math.floor(ranno) + 1;
+
+      while (!finished) {
+        target = prompt("Welcome to my guess game!!!\n\nWrite a number in the range 1 to 100");
+        guess++
+        finished = tocheck();
+      }
+    }
+
+    function tocheck() {
+      if (isNaN(target)) {
+        alert("Write a number");
+        return false;
+      }
+      if (target < 1 || target > 100) {
+        alert("Write a number in the range 1 to 100 only");
+        return false;
+      }
+      if (target > ran) {
+        alert("The number is too large!!!");
+        return false;
+      }
+      if (target < ran) {
+        alert("The number is too small!!!")
+        return false;
+      }
+      alert("Congradulation!!!\n\nThe number was " + ran + "\n\nIt took you " + guess + " guesses");
+      return true;
+    }
+  </script>
+</body>
+
+</html>
